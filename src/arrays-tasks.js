@@ -20,8 +20,20 @@
  *    getIntervalArray(0, 100) => [ 0, 1, 2, ..., 100 ]
  *    getIntervalArray(3, 3) => [ 3 ]
  */
-function getIntervalArray(/* start, end */) {
-  throw new Error('Not implemented');
+function getIntervalArray(start, end) {
+  const obj = {
+    length: end - start + 1,
+  };
+  let current;
+  const arr = Array.from(obj, (item, index) => {
+    if (index === 0) {
+      current = start;
+      return current;
+    }
+    current += 1;
+    return current;
+  });
+  return arr;
 }
 
 /**
@@ -272,7 +284,7 @@ function createNDimensionalArray(/* n, size */) {
  *    flattenArray(['a', ['b', ['c', 'd'], 'e'], 'f']) => ['a', 'b', 'c', 'd', 'e', 'f']
  *    flattenArray([1, 2, 3, 4]) => [1, 2, 3, 4]
  */
-function flattenArray(/* nestedArray */) {
+function flattenArray() {
   throw new Error('Not implemented');
 }
 
