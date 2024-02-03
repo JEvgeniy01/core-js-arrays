@@ -484,8 +484,14 @@ function getElementByIndices(arr, indices) {
  *  getFalsyValuesCount([ -1, 'false', null, 0 ]) => 2
  *  getFalsyValuesCount([ null, undefined, NaN, false, 0, '' ]) => 6
  */
-function getFalsyValuesCount(/* arr */) {
-  throw new Error('Not implemented');
+function getFalsyValuesCount(arr) {
+  const falsyArray = [null, undefined, false, 0, ''];
+  return arr.reduce((sum, current) => {
+    if (falsyArray.includes(current) || Number.isNaN(current)) {
+      return sum + 1;
+    }
+    return sum;
+  }, 0);
 }
 
 /**
@@ -504,7 +510,7 @@ function getFalsyValuesCount(/* arr */) {
  *                              [0,1,0,0,0],
  *     getIdentityMatrix(5) =>  [0,0,1,0,0],
  *                              [0,0,0,1,0],
- *                              [0,0,0,0,1]] 
+ *                              [0,0,0,0,1]]
  */
 function getIdentityMatrix(n) {
   const matrix = Array.from({ length: n }, () => {
@@ -531,8 +537,16 @@ function getIdentityMatrix(n) {
  *    getIndicesOfOddNumbers([2, 4, 6, 8, 10]) => []
  *    getIndicesOfOddNumbers([11, 22, 33, 44, 55]) => [0, 2, 4]
  */
-function getIndicesOfOddNumbers(/* numbers */) {
-  throw new Error('Not implemented');
+function getIndicesOfOddNumbers(numbers) {
+  const result = numbers.map((item, index) => {
+    if (!(item % 2)) {
+      return null;
+    }
+    return index;
+  });
+  return result.filter((item) => {
+    return item !== null;
+  });
 }
 
 /**
